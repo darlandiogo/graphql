@@ -54,7 +54,6 @@ $mutationType = new ObjectType([
     ],
 ]);
 
-
 $schema = new Schema([
     'query' => $queryType,
     'mutation' => $mutationType
@@ -67,7 +66,7 @@ $query = $input['query'];
 $variableValues = isset($input['variables']) ? $input['variables'] : null;
 
 try {
-    $rootValue = ['prefix' => 'You said: '];
+    $rootValue = null;
     $result = GraphQL::executeQuery($schema, $query, $rootValue, null, $variableValues);
     $output = $result->toArray();
 } catch (\Exception $e) {
@@ -79,7 +78,6 @@ try {
         ]
     ];
 }
-
 
 header('Content-Type: application/json');
 echo json_encode($output);

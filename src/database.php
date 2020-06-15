@@ -1,12 +1,10 @@
 <?php
 
-//$env = parse_ini_file("./.env");
-
 class Connection {
 
-    protected $dsn =  '';  //'mysql:dbname=testdb;host=127.0.0.1';
-    protected $user = '';  //'dbuser';
-    protected $password = ''; //'dbpass';
+    protected $dsn =  '';
+    protected $user = '';  
+    protected $password = ''; 
     protected $conn = null;
 
     public function __construct($env)
